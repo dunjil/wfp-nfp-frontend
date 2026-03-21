@@ -1,0 +1,168 @@
+import Image from 'next/image';
+import Link from 'next/link';
+import type { GlobalSetting } from '@/lib/api';
+
+interface FooterProps { settings: GlobalSetting | null; }
+
+export default function Footer({ settings }: FooterProps) {
+  const year = new Date().getFullYear();
+
+  return (
+    <>
+      <style>{`
+        .footer { background: var(--wfp-navy); color: rgba(255,255,255,.8); font-size: 0.95rem; }
+        .footer-main { padding: 5rem 0 4rem; border-bottom: 1px solid rgba(255,255,255,.1); }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1.5fr; gap: 4rem; }
+        
+        .footer-brand .footer-logo { display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1.5rem; }
+        .footer-logo-mark {
+          width: 48px; height: 48px; border-radius: 12px;
+          background: #fff; display: flex; align-items: center; justify-content: center;
+          flex-shrink: 0; box-shadow: 0 4px 12px rgba(0,0,0,0.1); padding: 4px;
+        }
+        .footer-logo-name { font-size: 1.1rem; font-weight: 800; color: #fff; line-height: 1.15; letter-spacing: -0.01em; }
+        .footer-logo-sub { font-size: 0.7rem; color: var(--wfp-gold); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700; margin-top: 0.2rem; }
+        .footer-brand p { font-size: 0.95rem; line-height: 1.7; color: rgba(255,255,255,.7); max-width: 300px; }
+        
+        .footer-socials { display: flex; gap: 0.75rem; margin-top: 2rem; }
+        .footer-social-link {
+          width: 40px; height: 40px; border-radius: 50%;
+          background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.15);
+          color: #fff; display: flex; align-items: center; justify-content: center;
+          font-size: 1rem; transition: all .25s var(--ease-out);
+        }
+        .footer-social-link:hover { background: var(--wfp-gold); border-color: var(--wfp-gold); color: var(--text-primary); transform: translateY(-3px); }
+
+        .footer-col h4 {
+          font-size: 0.85rem; font-weight: 700; text-transform: uppercase;
+          letter-spacing: 0.12em; color: #fff; margin-bottom: 1.5rem;
+        }
+        .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 1rem; }
+        .footer-col ul li a { color: rgba(255,255,255,.7); transition: all .2s; display: inline-block; }
+        .footer-col ul li a:hover { color: var(--wfp-gold); transform: translateX(4px); }
+
+        .footer-contact-item { display: flex; gap: 1rem; margin-bottom: 1rem; align-items: flex-start; }
+        .footer-contact-icon { font-size: 1.1rem; flex-shrink: 0; color: var(--wfp-gold); margin-top: 0.1rem; }
+        .footer-contact-val { color: rgba(255,255,255,.8); line-height: 1.6; }
+        .footer-contact-val a { color: rgba(255,255,255,.8); transition: color .2s; }
+        .footer-contact-val a:hover { color: var(--wfp-gold); }
+
+        .footer-bottom {
+          padding: 2rem 0;
+          display: flex; align-items: center; justify-content: space-between;
+          flex-wrap: wrap; gap: 1.5rem;
+          font-size: 0.85rem; color: rgba(255,255,255,.5);
+        }
+        .footer-bottom a { color: rgba(255,255,255,.5); transition: color .2s; text-decoration: underline; text-decoration-color: transparent; }
+        .footer-bottom a:hover { color: #fff; text-decoration-color: currentColor; }
+        
+        .footer-wfp-badge {
+          display: inline-flex; align-items: center; gap: 0.75rem;
+          background: rgba(0,0,0,.2); border: 1px solid rgba(255,255,255,.1);
+          border-radius: var(--radius-full); padding: 0.5rem 1.25rem;
+          font-size: 0.8rem; font-weight: 600; color: rgba(255,255,255,.9);
+        }
+        
+        .footer-wfp-badge {
+          display: inline-flex; align-items: center; gap: 0.75rem;
+          background: rgba(0,0,0,.2); border: 1px solid rgba(255,255,255,.1);
+          border-radius: var(--radius-full); padding: 0.5rem 1.25rem;
+          font-size: 0.8rem; font-weight: 600; color: rgba(255,255,255,.9);
+        }
+
+        @media (max-width: 900px) { .footer-grid { grid-template-columns: 1fr 1fr; gap: 3rem; } }
+        @media (max-width: 560px) { .footer-grid { grid-template-columns: 1fr; gap: 2.5rem; } }
+      `}</style>
+
+      <footer className="footer">
+        {/* Main grid */}
+        <div className="footer-main">
+          <div className="container">
+            <div className="footer-grid">
+              {/* Brand */}
+              <div className="footer-brand">
+                <div className="footer-logo">
+                  <div className="footer-logo-mark">
+                    <Image src="/logo.png" alt="NFA Logo" width={40} height={40} style={{ objectFit: 'contain' }} />
+                  </div>
+                  <div>
+                    <div className="footer-logo-name">National Fortification Alliance</div>
+                    <div className="footer-logo-sub">Powered by WFP Nigeria</div>
+                  </div>
+                </div>
+                <p>
+                  {settings?.site_tagline || 'Coordinating and championing food fortification across Nigeria — eliminating micronutrient malnutrition one meal at a time.'}
+                </p>
+                <div className="footer-socials">
+                  {settings?.twitter_url && <a href={settings.twitter_url} target="_blank" rel="noopener noreferrer" className="footer-social-link" aria-label="X / Twitter">𝕏</a>}
+                  {settings?.facebook_url && <a href={settings.facebook_url} target="_blank" rel="noopener noreferrer" className="footer-social-link" aria-label="Facebook">f</a>}
+                  {settings?.linkedin_url && <a href={settings.linkedin_url} target="_blank" rel="noopener noreferrer" className="footer-social-link" aria-label="LinkedIn">in</a>}
+                </div>
+              </div>
+
+              {/* Links */}
+              <div className="footer-col">
+                <h4>Explore</h4>
+                <ul>
+                  <li><Link href="/">Home</Link></li>
+                  <li><Link href="/about">About the NFP</Link></li>
+                  <li><Link href="/news">News & Events</Link></li>
+                  <li><Link href="/guidelines">Guidelines</Link></li>
+                  <li><Link href="/partners">Partners</Link></li>
+                  <li><Link href="/contact">Contact</Link></li>
+                </ul>
+              </div>
+
+              {/* Resources */}
+              <div className="footer-col">
+                <h4>Resources</h4>
+                <ul>
+                  <li><Link href="/guidelines">Regulatory Docs</Link></li>
+                  <li><Link href="/guidelines">Technical Guides</Link></li>
+                  <li><Link href="/guidelines">Training Materials</Link></li>
+                  <li><Link href="/news?category=report">Annual Reports</Link></li>
+                </ul>
+              </div>
+
+              {/* Contact */}
+              <div className="footer-col">
+                <h4>Contact</h4>
+                {settings?.contact_email && (
+                  <div className="footer-contact-item">
+                    <span className="footer-contact-icon">✉</span>
+                    <div className="footer-contact-val">
+                      <a href={`mailto:${settings.contact_email}`}>{settings.contact_email}</a>
+                    </div>
+                  </div>
+                )}
+                {settings?.contact_phone && (
+                  <div className="footer-contact-item">
+                    <span className="footer-contact-icon">📞</span>
+                    <div className="footer-contact-val">{settings.contact_phone}</div>
+                  </div>
+                )}
+                {settings?.address && (
+                  <div className="footer-contact-item">
+                    <span className="footer-contact-icon">📍</span>
+                    <div className="footer-contact-val">{settings.address}</div>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom */}
+        <div className="container">
+          <div className="footer-bottom">
+            <span>© {year} National Fortification Alliance Nigeria. All rights reserved.</span>
+            <div className="footer-wfp-badge">🌐 Supported by World Food Programme Nigeria</div>
+            <span>
+              <Link href="/about">About</Link> &nbsp;·&nbsp; <Link href="/contact">Contact</Link>
+            </span>
+          </div>
+        </div>
+      </footer>
+    </>
+  );
+}

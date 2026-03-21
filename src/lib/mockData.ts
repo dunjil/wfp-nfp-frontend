@@ -1,0 +1,43 @@
+import type { NewsEvent } from './api';
+
+export const MOCK_NEWS: any[] = [
+    {
+        id: 101,
+        documentId: 'mock-1',
+        title: 'NFA Launches New Fortification Guidelines for 2024',
+        slug: 'nfa-launches-new-guidelines-2024',
+        excerpt: 'The National Fortification Alliance today released the updated regulatory standards for edible oil and wheat flour, aiming to reach 90% compliance by the end of the year.',
+        body: '<p>The National Fortification Alliance (NFA) is proud to announce the release of the updated regulatory standards for the mandatory fortification of edible oil and wheat flour in Nigeria.</p><h2>A Milestone in Nutrition</h2><p>This comprehensive update aligns our national standards with the latest global health guidelines set by the World Health Organization (WHO), ensuring that staple foods provide the optimal levels of essential vitamins and minerals.</p><ul><li>Increased Vitamin A requirements for vegetable oil.</li><li>Enhanced iron and folic acid ranges for wheat flour.</li><li>Stricter QA/QC protocols for inline testing.</li></ul><p>We invite all certified processors to download the new technical handbook from our Guidelines section.</p>',
+        category: 'announcement',
+        date: '2024-03-15',
+        is_featured: true,
+        publishedAt: '2024-03-15T10:00:00Z',
+        image: { id: 0, documentId: '', url: '' },
+    },
+    {
+        id: 102,
+        documentId: 'mock-2',
+        title: 'Annual Fortification Audit Reveals 20% Increase in Compliance',
+        slug: 'annual-fortification-audit-reveals-increase',
+        excerpt: 'NAFDAC\'s latest nationwide audit shows a significant improvement in industry compliance across all six mandated food vehicles.',
+        body: '<p>The National Agency for Food and Drug Administration and Control (NAFDAC) has published the results of the 2023 Nationwide Fortification Audit, revealing a remarkable 20% year-over-year increase in industry compliance.</p><h2>Key Findings</h2><p>The audit covered over 200 certified food processing facilities across all 36 states, analyzing thousands of end-product samples for micronutrient adequacy.</p><p>Wheat flour and vegetable oil sectors showed the highest levels of adherence, driven largely by recent capacity building initiatives supported by the WFP and GAIN.</p>',
+        category: 'report',
+        date: '2024-02-28',
+        is_featured: false,
+        publishedAt: '2024-02-28T10:00:00Z',
+        image: { id: 0, documentId: '', url: '' },
+    },
+    {
+        id: 103,
+        documentId: 'mock-3',
+        title: 'Stakeholder Workshop on Digital Monitoring Tools',
+        slug: 'stakeholder-workshop-digital-monitoring',
+        excerpt: 'Join us for a hands-on technical workshop introducing the DFQT+ digital monitoring platform for real-time tracking of fortification levels.',
+        body: '<p>The NFA, in collaboration with our technical partners, is hosting a two-day workshop on the implementation of the new DFQT+ digital monitoring platform.</p><h2>About the Event</h2><p>This event is designed for quality assurance managers, regulatory inspectors, and IT personnel involved in the fortification supply chain.</p><p><strong>Date:</strong> April 10-11, 2024<br/><strong>Location:</strong> NFA Secretariat, UN House, Abuja<br/><strong>Format:</strong> In-person and Virtual</p><p>Registration is mandatory for all participating food processing companies.</p>',
+        category: 'event',
+        date: '2024-04-10',
+        is_featured: false,
+        publishedAt: '2024-04-01T10:00:00Z',
+        image: { id: 0, documentId: '', url: '' },
+    }
+];
