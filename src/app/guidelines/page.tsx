@@ -3,7 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import Icon, { IconName } from '@/components/Icon';
 import { getGuidelines } from '@/lib/api';
-import DocumentCard from '@/components/DocumentCard';
+import GuidelinesClient from '@/components/GuidelinesClient';
 
 export const metadata: Metadata = {
     title: 'Guidelines & Resources',
@@ -73,71 +73,7 @@ export default async function GuidelinesPage() {
                 </div>
             </div>
 
-            {/* ── Filter bar ── */}
-            <div className="search-bar">
-                <div className="container">
-                    <div className="search-inner">
-                        <div className="search-input-wrap">
-                            <span className="search-icon" style={{ display: 'flex', top: '50%', transform: 'translateY(-50%)', opacity: 0.5 }}>
-                                <Icon name="search" size={16} />
-                            </span>
-                            <input className="search-input" type="text" placeholder="Search guidelines, standards, manuals…" />
-                        </div>
-                        <div className="filter-chips">
-                            {CATEGORIES.map((c) => (
-                                <button key={c} className={`chip ${c === 'All' ? 'active' : ''}`}>{c}</button>
-                            ))}
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            {/* ── Key Documents ── */}
-            <section className="section">
-                <div className="container">
-                    <p className="section-eyebrow">Key Documents</p>
-                    <h2 className="section-title">Essential Fortification Resources</h2>
-                    <p className="section-lead">The core documents governing food fortification in Nigeria — start here whether you are a processor, inspector, or policy maker.</p>
-
-                    <div className="quick-grid">
-                        {QUICK_GUIDES.map((g) => (
-                            <div key={g.title} className="quick-card">
-                                <div className="quick-card-icon" style={{ color: 'var(--wfp-blue)' }}><Icon name={g.icon} size={32} /></div>
-                                <div className="quick-type">{g.type}</div>
-                                <h3>{g.title}</h3>
-                                <p>{g.desc}</p>
-                                <div className="quick-card-footer">
-                                    <span style={{ display: 'flex', alignItems: 'center', gap: '0.4rem' }}>
-                                        <Icon name="file" size={14} /> Download PDF →
-                                    </span>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-            </section>
-
-            {/* ── From CMS or empty ── */}
-            <section className="section" style={{ background: 'var(--bg-off)', paddingTop: '3rem' }}>
-                <div className="container">
-                    <p className="section-eyebrow">Document Library</p>
-                    <h2 className="section-title">All Publications</h2>
-
-                    {docs.length > 0 ? (
-                        <div className="grid-3" style={{ marginTop: '2rem' }}>
-                            {docs.map((d) => <DocumentCard key={d.id} doc={d as any} />)}
-                        </div>
-                    ) : (
-                        <div className="info-bar" style={{ marginTop: '2rem' }}>
-                            <span className="info-bar-icon" style={{ color: 'var(--wfp-blue)' }}><Icon name="clipboard" size={24} /></span>
-                            <div>
-                                <strong>Documents will appear here once added via the NFA Strapi CMS.</strong><br />
-                                <span style={{ fontSize: '0.875rem', color: 'var(--text-muted)' }}>Admins can log into the Strapi admin panel to upload and publish documents, which will appear here automatically.</span>
-                            </div>
-                        </div>
-                    )}
-                </div>
-            </section>
+            <GuidelinesClient docs={docs} />
 
             {/* ── Request doc CTA ── */}
             <div style={{ background: 'var(--wfp-navy)', padding: '3.5rem 0' }}>

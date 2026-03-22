@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import Icon from '@/components/Icon';
+import ContactForm from '@/components/ContactForm';
 
 export const metadata: Metadata = {
     title: 'Contact the NFA',
@@ -86,58 +87,7 @@ export default function ContactPage() {
                         <div className="form-eyebrow">Send a Message</div>
                         <h2 className="form-title">How can we help?</h2>
 
-                        <form className="contact-form">
-                            <div className="form-grid" style={{ marginBottom: '1.5rem' }}>
-                                <div className="form-group">
-                                    <label className="form-label">First Name *</label>
-                                    <input type="text" className="form-control" placeholder="Jane" required />
-                                </div>
-                                <div className="form-group">
-                                    <label className="form-label">Last Name *</label>
-                                    <input type="text" className="form-control" placeholder="Doe" required />
-                                </div>
-                            </div>
-
-                            <div className="form-grid full" style={{ marginBottom: '1.5rem' }}>
-                                <div className="form-group">
-                                    <label className="form-label">Work Email *</label>
-                                    <input type="email" className="form-control" placeholder="jane@company.com" required />
-                                </div>
-                            </div>
-
-                            <div className="form-grid" style={{ marginBottom: '1.5rem' }}>
-                                <div className="form-group">
-                                    <label className="form-label">Organization Type</label>
-                                    <select className="form-control">
-                                        <option>Food Processor / Manufacturer</option>
-                                        <option>Government / Regulatory</option>
-                                        <option>NGO / Civil Society</option>
-                                        <option>Research / Academia</option>
-                                        <option>Media</option>
-                                        <option>Other</option>
-                                    </select>
-                                </div>
-                                <div className="form-group">
-                                    <label className="form-label">Inquiry Topic</label>
-                                    <select className="form-control">
-                                        <option>NAFDAC Certification</option>
-                                        <option>Premix Supply</option>
-                                        <option>Partnership Inquiry</option>
-                                        <option>Data & Research</option>
-                                        <option>General Support</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div className="form-grid full" style={{ marginBottom: '2rem' }}>
-                                <div className="form-group">
-                                    <label className="form-label">Your Message *</label>
-                                    <textarea className="form-control" placeholder="Tell us how we can assist you..." required />
-                                </div>
-                            </div>
-
-                            <button type="submit" className="btn btn-primary btn-lg" style={{ width: '100%' }}>Send Message</button>
-                        </form>
+                        <ContactForm />
                     </div>
 
                     {/* Sidebar */}

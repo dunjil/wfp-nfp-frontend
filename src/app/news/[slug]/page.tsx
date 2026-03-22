@@ -13,9 +13,21 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     const { slug } = await params;
     const article = await getNewsBySlug(slug);
     if (!article) return { title: 'Article Not Found' };
+    
+    // Check for SEO component from Strapi
+    const seo = (article as any).seo;
+    const title = seo?.metaTitle || article.title;
+    const description = seo?.metaDescription || article.excerpt || article.title;
+    const ogImage = seo?.shareImage?.url ? getStrapiMediaUrl(seo.shareImage.url) : null;
+
     return {
-        title: article.title,
-        description: article.excerpt || article.title,
+        title,
+        description,
+        openGraph: {
+            title,
+            description,
+            images: ogImage ? [ogImage] : [],
+        }
     };
 }
 

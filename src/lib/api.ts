@@ -84,6 +84,16 @@ export interface Partner {
     partner_type: string;
 }
 
+export interface TeamMember {
+    id: number;
+    documentId: string;
+    name: string;
+    role: string;
+    bio?: string;
+    image?: StrapiImage;
+    order: number;
+}
+
 export interface AboutPage {
     documentId: string;
     mission: string;
@@ -142,7 +152,7 @@ export async function getFeaturedNews(): Promise<NewsEvent[]> {
 export async function getNewsBySlug(slug: string): Promise<NewsEvent | null> {
     const res = await fetchAPI<{ data: NewsEvent[] }>('/news-events', {
         'filters[slug][$eq]': slug,
-        'populate': 'image',
+        'populate': 'image,seo.shareImage',
     });
     return res?.data?.[0] || null;
 }
@@ -162,6 +172,15 @@ export async function getPartners(): Promise<Partner[]> {
         'sort': 'order:asc',
         'populate': 'logo',
         'pagination[pageSize]': '20',
+    });
+    return res?.data || [];
+}
+
+export async function getTeamMembers(): Promise<TeamMember[]> {
+    const res = await fetchAPI<{ data: TeamMember[] }>('/team-members', {
+        'sort': 'order:asc',
+        'populate': 'image',
+        'pagination[pageSize]': '50',
     });
     return res?.data || [];
 }
