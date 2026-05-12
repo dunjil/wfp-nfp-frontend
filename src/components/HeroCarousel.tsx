@@ -69,7 +69,7 @@ export default function HeroCarousel({ slides }: HeroCarouselProps) {
   }, [next]);
 
   return (
-    <section style={{ position: 'relative', height: '85vh', minHeight: '600px', maxHeight: '900px', overflow: 'hidden' }}>
+    <section style={{ position: 'relative', height: '85vh', minHeight: '700px', maxHeight: '900px', overflow: 'hidden' }}>
       <style>{`
         .hero-slide {
           position: absolute; inset: 0;
