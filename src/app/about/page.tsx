@@ -19,19 +19,23 @@ const TIMELINE = [
 ];
 
 const OBJECTIVES: { icon: IconName; text: string }[] = [
-    { icon: 'trending-up', text: 'Increase coverage of fortified staple foods to at least 90% of Nigerian households by 2027.' },
-    { icon: 'landmark', text: 'Strengthen regulatory frameworks and NAFDAC enforcement capacity for food fortification.' },
-    { icon: 'wrench', text: 'Build technical and operational capacity of certified food processors and millers.' },
-    { icon: 'megaphone', text: 'Promote consumer awareness and behavioral demand for fortified foods across Nigeria.' },
-    { icon: 'bar-chart', text: 'Establish robust monitoring and evaluation systems for real-time fortification quality tracking.' },
-    { icon: 'handshake', text: 'Mobilize sustainable public-private financing for Nigeria\'s national fortification program.' },
+    { icon: 'users', text: 'Providing a platform for collaboration between government and industry.' },
+    { icon: 'shield', text: 'Supporting implementation of mandatory food fortification.' },
+    { icon: 'check-circle', text: 'Strengthening compliance with national fortification standards.' },
+    { icon: 'bar-chart', text: 'Supporting monitoring and evaluation systems.' },
+    { icon: 'handshake', text: 'Promoting stakeholder coordination.' },
+    { icon: 'activity', text: 'Improving laboratory capacity.' },
+    { icon: 'file-text', text: 'Supporting evidence-based nutrition interventions.' },
+    { icon: 'box', text: 'Expanding fortification to additional food vehicles.' },
+    { icon: 'megaphone', text: 'Promoting public awareness on fortified foods.' },
+    { icon: 'monitor', text: 'Supporting innovation and digital traceability systems.' },
 ];
 
 const LEADERSHIP = [
-    { name: 'WFP Nigeria Office', role: 'Program Lead & Technical Support', src: '/wfp-logo-standard-blue-en.svg', width: 100, height: 40 },
-    { name: 'NAFDAC', role: 'Regulatory Authority & Enforcement', src: '/NAFDAC_emblem.png', width: 56, height: 56 },
-    { name: 'Federal Ministry of Health', role: 'Policy & Government Ownership', src: '/Nigeria_Federal_Ministry_of_Health_Logo.png', width: 56, height: 56 },
-    { name: 'NFA Secretariat', role: 'Coordination & Stakeholder Management', src: '/logo.png', width: 120, height: 40 },
+    { name: 'Industry Representative', role: 'Chair', src: '/industry-placeholder.png', width: 60, height: 60 },
+    { name: 'Standards Organisation of Nigeria (SON)', role: 'Vice Chair', src: '/son-logo.png', width: 60, height: 60 },
+    { name: 'NAFDAC', role: 'Secretariat', src: '/NAFDAC_emblem.png', width: 56, height: 56 },
+    { name: 'FMoHSW & FCCPC', role: 'Core Officials', src: '/Nigeria_Federal_Ministry_of_Health_Logo.png', width: 56, height: 56 },
 ];
 
 export default async function AboutPage() {
@@ -206,17 +210,20 @@ export default async function AboutPage() {
                     <h2 className="section-title">Who Runs the NFA</h2>
                     <div className="governance-grid">
                         {LEADERSHIP.map((l) => (
-                            <Link key={l.name} href={l.name === 'NFA Secretariat' ? '/about/secretariat' : '#'} className="governance-card" style={{ display: 'block', textDecoration: 'none', color: 'inherit' }}>
+                            <Link key={l.name} href={l.role === 'Secretariat' ? '/about/secretariat' : '/about/governance'} className="governance-card" style={{ display: 'block', textDecoration: 'none', color: 'inherit' }}>
                                 <div className="governance-logo">
                                     <Image src={l.src} alt={l.name} width={l.width} height={l.height} style={{ objectFit: 'contain' }} />
                                 </div>
                                 <div className="governance-name">{l.name}</div>
                                 <div className="governance-role">{l.role}</div>
-                                {l.name === 'NFA Secretariat' && (
-                                    <div style={{ marginTop: '0.75rem', fontSize: '0.75rem', color: 'var(--wfp-blue)', fontWeight: 700 }}>View Team ›</div>
+                                {l.role === 'Secretariat' && (
+                                    <div style={{ marginTop: '0.75rem', fontSize: '0.75rem', color: 'var(--wfp-blue)', fontWeight: 700 }}>View Secretariat Team ›</div>
                                 )}
                             </Link>
                         ))}
+                    </div>
+                    <div style={{ textAlign: 'center', marginTop: '3rem' }}>
+                        <Link href="/about/governance" className="btn btn-outline-primary">View Full Governance & Compliance Structure</Link>
                     </div>
                 </div>
             </section>
