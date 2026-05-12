@@ -206,13 +206,16 @@ export default async function AboutPage() {
                     <h2 className="section-title">Who Runs the NFA</h2>
                     <div className="governance-grid">
                         {LEADERSHIP.map((l) => (
-                            <div key={l.name} className="governance-card">
+                            <Link key={l.name} href={l.name === 'NFA Secretariat' ? '/about/secretariat' : '#'} className="governance-card" style={{ display: 'block', textDecoration: 'none', color: 'inherit' }}>
                                 <div className="governance-logo">
                                     <Image src={l.src} alt={l.name} width={l.width} height={l.height} style={{ objectFit: 'contain' }} />
                                 </div>
                                 <div className="governance-name">{l.name}</div>
                                 <div className="governance-role">{l.role}</div>
-                            </div>
+                                {l.name === 'NFA Secretariat' && (
+                                    <div style={{ marginTop: '0.75rem', fontSize: '0.75rem', color: 'var(--wfp-blue)', fontWeight: 700 }}>View Team ›</div>
+                                )}
+                            </Link>
                         ))}
                     </div>
                 </div>

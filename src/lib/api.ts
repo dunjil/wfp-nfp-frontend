@@ -89,6 +89,8 @@ export interface TeamMember {
     documentId: string;
     name: string;
     role: string;
+    organization?: string;
+    category: 'Leadership' | 'Secretariat' | 'Focal Point';
     bio?: string;
     image?: StrapiImage;
     order: number;
@@ -176,12 +178,16 @@ export async function getPartners(): Promise<Partner[]> {
     return res?.data || [];
 }
 
-export async function getTeamMembers(): Promise<TeamMember[]> {
-    const res = await fetchAPI<{ data: TeamMember[] }>('/team-members', {
+export async function getTeamMembers(category?: string): Promise<TeamMember[]> {
+    const params: Record<string, string> = {
         'sort': 'order:asc',
         'populate': 'image',
         'pagination[pageSize]': '50',
-    });
+    };
+    if (category) {
+        params['filters[category][$eq]'] = category;
+    }
+    const res = await fetchAPI<{ data: TeamMember[] }>('/team-members', params);
     return res?.data || [];
 }
 
