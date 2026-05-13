@@ -114,7 +114,7 @@ const MEMBERSHIP = {
         { name: 'Federal Ministry of Education' },
         { name: 'Federal Ministry of Industry, Trade and Investment' },
         { name: 'Federal Ministry of Finance, Budget and National Planning' },
-        { name: 'Standards Organisation of Nigeria' },
+        { name: 'Standards Organisation of Nigeria', logo: '/son-logo.png' },
         { name: 'Federal Competition and Consumer Protection Commission' },
         { name: 'Nigerian Customs Service' },
         { name: 'National Primary Health Care Development Agency' },
