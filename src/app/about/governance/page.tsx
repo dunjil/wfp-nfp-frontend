@@ -230,7 +230,7 @@ export default function GovernancePage() {
 
             <div className="gov-hero">
                 <div className="container">
-                    <div className="breadcrumb" style={{ justifyContent: 'center', margin-bottom: '2rem' }}>
+                    <div className="breadcrumb" style={{ justifyContent: 'center', marginBottom: '2rem' }}>
                         <Link href="/" style={{ color: 'rgba(255,255,255,0.6)' }}>Home</Link>
                         <span className="breadcrumb-sep" style={{ color: 'rgba(255,255,255,0.3)' }}>›</span>
                         <Link href="/about" style={{ color: 'rgba(255,255,255,0.6)' }}>About</Link>

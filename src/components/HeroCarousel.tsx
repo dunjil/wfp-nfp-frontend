@@ -137,7 +137,7 @@ export default function HeroCarousel({ slides }: HeroCarouselProps) {
           box-shadow: 0 0 12px var(--wfp-gold);
         }
         .hero-title {
-          font-size: clamp(3rem, 6vw, 5.5rem);
+          font-size: clamp(2.5rem, 5vw, 4.5rem);
           font-weight: 900; color: #ffffff; line-height: 1.05;
           letter-spacing: -0.03em; white-space: pre-line;
           margin-bottom: 1.5rem;
