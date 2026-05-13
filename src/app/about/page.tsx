@@ -135,8 +135,13 @@ export default async function AboutPage() {
             <section className="section">
                 <div className="container">
                     <p className="section-eyebrow">Who We Are</p>
-                    <h2 className="section-title">Purpose-driven. Evidence-based.</h2>
-                    <p className="section-lead">The National Fortification Alliance (NFA) coordinates Nigeria's mandatory food fortification program, aligning food industry, government, and development partners under a single national framework.</p>
+                    <h2 className="section-title">The National Fortification Alliance (NFA)</h2>
+                    <p className="section-lead">
+                        The National Fortification Alliance is a multi-sectoral coordination platform established to strengthen the implementation of food fortification programmes in Nigeria through collaboration among government agencies, regulatory institutions, private sector stakeholders, development partners, academia, professional associations, civil society organizations, and the media.
+                    </p>
+                    <p style={{ color: 'var(--text-secondary)', lineHeight: 1.7, marginTop: '1.5rem', fontSize: '1.05rem' }}>
+                        The Alliance provides a platform for policy dialogue, technical coordination, compliance monitoring, stakeholder engagement, advocacy, laboratory strengthening, public awareness creation, and nutrition programme implementation.
+                    </p>
                     <div className="mv-grid">
                         <div className="mv-card mv-card-mission">
                             <div className="mv-card-eyebrow" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
@@ -265,7 +270,9 @@ export default async function AboutPage() {
                 <div className="container">
                     <p className="section-eyebrow">Our History</p>
                     <h2 className="section-title">Two Decades of Progress</h2>
-                    <p className="section-lead">{about?.background || 'From a regulatory mandate to a nationwide movement — the NFP has grown from a policy document into a living, operational system reaching millions of Nigerians.'}</p>
+                    <p className="section-lead">
+                        Mandatory food fortification of selected staple food vehicles—including wheat flour, maize flour, sugar, and vegetable oil—commenced in Nigeria in 2002 as a core national strategy for combating micronutrient deficiencies. In 2004, the NFA was formally established under the chairmanship of the then National Planning Commission to mobilize stakeholders for coordinated implementation.
+                    </p>
                     <div className="timeline">
                         {TIMELINE.map((t) => (
                             <div key={t.year} className="timeline-item">
