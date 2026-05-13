@@ -115,7 +115,7 @@ const MEMBERSHIP = {
         { name: 'Federal Ministry of Industry, Trade and Investment' },
         { name: 'Federal Ministry of Finance, Budget and National Planning' },
         { name: 'Standards Organisation of Nigeria', logo: '/son-logo.png' },
-        { name: 'Federal Competition and Consumer Protection Commission' },
+        { name: 'Federal Competition and Consumer Protection Commission', logo: '/fccpc-logo.png' },
         { name: 'Nigerian Customs Service' },
         { name: 'National Primary Health Care Development Agency' },
         { name: 'Federal Ministry of Agriculture and Food Security' },
