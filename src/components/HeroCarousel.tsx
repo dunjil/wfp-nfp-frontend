@@ -69,7 +69,7 @@ export default function HeroCarousel({ slides }: HeroCarouselProps) {
   }, [next]);
 
   return (
-    <section style={{ position: 'relative', height: '65vh', minHeight: '500px', maxHeight: '800px', overflow: 'hidden' }}>
+    <section style={{ position: 'relative', height: '80vh', minHeight: '600px', maxHeight: '1000px', overflow: 'hidden' }}>
       <style>{`
         .hero-slide {
           position: absolute; inset: 0;
@@ -111,7 +111,7 @@ export default function HeroCarousel({ slides }: HeroCarouselProps) {
           max-width: 900px;
           text-align: center;
           padding: 0 2rem;
-          margin-top: 2rem; /* Reduced to fit the smaller carousel height */
+          margin-top: 4rem; /* Restored larger margin for the taller hero height */
         }
 
         /* Text Animations inside the block */
