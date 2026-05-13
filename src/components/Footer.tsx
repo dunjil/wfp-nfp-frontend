@@ -102,27 +102,14 @@ export default function Footer({ settings }: FooterProps) {
                 <NewsletterForm />
               </div>
 
-              {/* Links */}
+              {/* Simplified Links */}
               <div className="footer-col">
-                <h4>Explore</h4>
+                <h4>Links</h4>
                 <ul>
-                  <li><Link href="/">Home</Link></li>
-                  <li><Link href="/about">About the NFP</Link></li>
-                  <li><Link href="/news">News & Events</Link></li>
-                  <li><Link href="/guidelines">Guidelines</Link></li>
-                  <li><Link href="/partners">Partners</Link></li>
-                  <li><Link href="/contact">Contact</Link></li>
-                </ul>
-              </div>
-
-              {/* Resources */}
-              <div className="footer-col">
-                <h4>Resources</h4>
-                <ul>
-                  <li><Link href="/guidelines">Regulatory Docs</Link></li>
-                  <li><Link href="/guidelines">Technical Guides</Link></li>
-                  <li><Link href="/guidelines">Training Materials</Link></li>
-                  <li><Link href="/news?category=report">Annual Reports</Link></li>
+                  <li><Link href="/news?category=communique">NFA Meeting Communiques</Link></li>
+                  <li><a href="https://www.nafdac.gov.ng" target="_blank" rel="noopener noreferrer">NAFDAC Website</a></li>
+                  <li><a href="https://fccpc.gov.ng" target="_blank" rel="noopener noreferrer">FCCPC Website</a></li>
+                  <li><a href="https://son.gov.ng" target="_blank" rel="noopener noreferrer">SON Website</a></li>
                 </ul>
               </div>
 
