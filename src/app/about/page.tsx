@@ -101,6 +101,17 @@ export default async function AboutPage() {
           .objectives-grid { grid-template-columns: 1fr; }
           .governance-grid { grid-template-columns: repeat(2, 1fr); }
         }
+
+        /* Stats Section */
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 3rem; }
+        .stats-card { background: #fff; border: 1px solid var(--border-light); border-radius: var(--radius-md); padding: 1.75rem; display: flex; flex-direction: column; }
+        .stats-val { font-size: 2.25rem; font-weight: 800; color: var(--wfp-blue); margin-bottom: 0.25rem; }
+        .stats-title { font-size: 0.95rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.5rem; }
+        .stats-meta { font-size: 0.8rem; color: var(--text-muted); line-height: 1.5; }
+        .stats-divider { height: 1px; background: var(--border-light); margin: 1.25rem 0; }
+        .stats-sub { display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem; margin-bottom: 0.5rem; }
+        .stats-sub-label { color: var(--text-secondary); }
+        .stats-sub-val { font-weight: 700; color: var(--wfp-blue); }
       `}</style>
 
             {/* ── Full-width hero ── */}
@@ -169,6 +180,85 @@ export default async function AboutPage() {
                     </div>
                 </div>
             </div>
+
+            {/* ── Key Statistics ── */}
+            <section className="section">
+                <div className="container">
+                    <p className="section-eyebrow">NFA by the Numbers</p>
+                    <h2 className="section-title">Key Statistics & Compliance</h2>
+                    <p className="section-lead">Current data on national fortification coverage, compliance levels, and the underlying nutritional challenges being addressed across Nigeria.</p>
+                    
+                    <div className="stats-grid">
+                        {/* Milestone Stats */}
+                        <div className="stats-card">
+                            <div className="stats-val">2002</div>
+                            <div className="stats-title">Programme Initiation</div>
+                            <div className="stats-meta">The year Nigeria's mandatory food fortification programme was officially launched.</div>
+                            <div className="stats-divider" />
+                            <div className="stats-sub">
+                                <span className="stats-sub-label">NFA Established</span>
+                                <span className="stats-sub-val">2004</span>
+                            </div>
+                        </div>
+
+                        {/* Compliance Stats */}
+                        <div className="stats-card" style={{ borderTop: '4px solid var(--wfp-blue)' }}>
+                            <div className="stats-val">57%</div>
+                            <div className="stats-title">National Compliance</div>
+                            <div className="stats-meta">Average compliance across all mandatory food vehicles in Nigeria.</div>
+                            <div className="stats-divider" />
+                            <div className="stats-sub">
+                                <span className="stats-sub-label">Salt (Iodized)</span>
+                                <span className="stats-sub-val">67%</span>
+                            </div>
+                            <div className="stats-sub">
+                                <span className="stats-sub-label">Veg Oil (Vit A)</span>
+                                <span className="stats-sub-val">58%</span>
+                            </div>
+                            <div className="stats-sub">
+                                <span className="stats-sub-label">Flour (Vit A)</span>
+                                <span className="stats-sub-val">48%</span>
+                            </div>
+                        </div>
+
+                        {/* Nutritional Deficit Stats */}
+                        <div className="stats-card" style={{ borderTop: '4px solid var(--wfp-gold)' }}>
+                            <div className="stats-val">37%</div>
+                            <div className="stats-title">Child Stunting</div>
+                            <div className="stats-meta">Prevalence of stunting among children under five years of age.</div>
+                            <div className="stats-divider" />
+                            <div className="stats-sub">
+                                <span className="stats-sub-label">Vitamin A Deficiency</span>
+                                <span className="stats-sub-val">~30%</span>
+                            </div>
+                            <div className="stats-sub">
+                                <span className="stats-sub-label">Anaemia (Women)</span>
+                                <span className="stats-sub-val">60–70%</span>
+                            </div>
+                        </div>
+
+                        {/* Calcium Inadequacy */}
+                        <div className="stats-card" style={{ borderTop: '4px solid var(--wfp-green)' }}>
+                            <div className="stats-val">92%</div>
+                            <div className="stats-title">Calcium Inadequacy</div>
+                            <div className="stats-meta">High prevalence of calcium deficiency across children and pregnant women.</div>
+                            <div className="stats-divider" />
+                            <div className="stats-sub">
+                                <span className="stats-sub-label">Non-Pregnant Women</span>
+                                <span className="stats-sub-val">95%</span>
+                            </div>
+                            <div className="stats-sub">
+                                <span className="stats-sub-label">Pregnant Women</span>
+                                <span className="stats-sub-val">92%</span>
+                            </div>
+                            <div className="stats-sub">
+                                <span className="stats-sub-label">Children</span>
+                                <span className="stats-sub-val">92%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
             {/* ── Background / History ── */}
             <section className="section" style={{ background: 'var(--bg-off)' }}>
