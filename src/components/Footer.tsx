@@ -92,7 +92,7 @@ export default function Footer({ settings }: FooterProps) {
                   </div>
                 </div>
                 <p>
-                  {settings?.site_tagline || 'Coordinating and championing food fortification across Nigeria — eliminating micronutrient malnutrition one meal at a time.'}
+                  The National Fortification Alliance remains committed to improving nutrition outcomes through sustainable food fortification programmes, regulatory strengthening, stakeholder collaboration, innovation, and public awareness.
                 </p>
                 <div className="footer-socials">
                   {settings?.twitter_url && <a href={settings.twitter_url} target="_blank" rel="noopener noreferrer" className="footer-social-link" aria-label="X / Twitter">𝕏</a>}
@@ -157,7 +157,12 @@ export default function Footer({ settings }: FooterProps) {
         {/* Bottom */}
         <div className="container">
           <div className="footer-bottom">
-            <span>© {year} National Fortification Alliance Nigeria. All rights reserved.</span>
+            <div>
+              <span>© {year} National Fortification Alliance. All rights reserved.</span>
+              <div style={{ marginTop: '0.5rem', fontSize: '0.75rem', color: 'rgba(255,255,255,0.3)' }}>
+                Privacy Policy and accessibility statements to be developed and approved.
+              </div>
+            </div>
             <div className="footer-wfp-badge">🌐 Supported by World Food Programme Nigeria</div>
             <span>
               <Link href="/about">About</Link> &nbsp;·&nbsp; <Link href="/contact">Contact</Link>
