@@ -12,32 +12,9 @@ export const revalidate = 60;
 
 // Local fallback data with the generated images
 const FALLBACK_SECRETARIAT = [
+    
     {
         id: 'f1',
-        name: 'Dr. Olumide Adeniyi',
-        role: 'National Coordinator',
-        organization: 'National Fortification Alliance',
-        image: '/team-1.png',
-        bio: 'Dr. Adeniyi leads the strategic implementation of the National Fortification Project, ensuring multi-stakeholder alignment and regulatory compliance.'
-    },
-    {
-        id: 'f2',
-        name: 'Mrs. Amina Abubakar',
-        role: 'Technical Advisor',
-        organization: 'World Food Programme (WFP)',
-        image: '/team-2.png',
-        bio: 'Amina provides technical expertise in food fortification standards and oversees the monitoring and evaluation framework for nationwide impact.'
-    },
-    {
-        id: 'f3',
-        name: 'Engr. Chidi Okafor',
-        role: 'Private Sector Lead',
-        organization: 'NFA Secretariat',
-        image: '/team-3.png',
-        bio: 'Chidi manages relationships with food processors and millers, facilitating the adoption of fortification technologies across the value chain.'
-    },
-    {
-        id: 'f4',
         name: 'Mr. Abubakar Tanimu Umar',
         role: 'Programme Officer',
         organization: 'NFA Secretariat',
@@ -45,7 +22,7 @@ const FALLBACK_SECRETARIAT = [
         bio: 'Mr. Umar coordinates field activities and stakeholder engagement for the National Fortification Project.'
     },
     {
-        id: 'f5',
+        id: 'f2',
         name: 'Mrs. Joy Haanya',
         role: 'Programme Officer',
         organization: 'NFA Secretariat',
