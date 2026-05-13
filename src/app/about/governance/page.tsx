@@ -379,7 +379,7 @@ export default function GovernancePage() {
                             </p>
                         </div>
                         <div style={{ background: '#fff', padding: '2rem', borderRadius: 'var(--radius-lg)', boxShadow: 'var(--shadow-sm)', border: '1px solid var(--border-light)' }}>
-                            <h4 style={{ marginBottom: '1.5rem', color: var(--wfp-navy) }}>Committee Membership</h4>
+                            <h4 style={{ marginBottom: '1.5rem', color: 'var(--wfp-navy)' }}>Committee Membership</h4>
                             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
                                 {STEERING_COMMITTEE.map((m, i) => (
                                     <div key={i} style={{ display: 'flex', gap: '0.75rem', fontSize: '0.88rem', color: 'var(--text-primary)', fontWeight: 500 }}>
