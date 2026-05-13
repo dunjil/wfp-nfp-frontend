@@ -35,6 +35,22 @@ const FALLBACK_SECRETARIAT = [
         organization: 'NFA Secretariat',
         image: '/team-3.png',
         bio: 'Chidi manages relationships with food processors and millers, facilitating the adoption of fortification technologies across the value chain.'
+    },
+    {
+        id: 'f4',
+        name: 'Mr. Abubakar Tanimu Umar',
+        role: 'Programme Officer',
+        organization: 'NFA Secretariat',
+        image: '/team-1.png',
+        bio: 'Mr. Umar coordinates field activities and stakeholder engagement for the National Fortification Project.'
+    },
+    {
+        id: 'f5',
+        name: 'Mrs. Joy Haanya',
+        role: 'Programme Officer',
+        organization: 'NFA Secretariat',
+        image: '/team-2.png',
+        bio: 'Mrs. Haanya supports programme implementation and administrative coordination within the NFA Secretariat.'
     }
 ];
 
