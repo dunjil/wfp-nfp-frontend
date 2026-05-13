@@ -33,10 +33,10 @@ const OBJECTIVES: { icon: IconName; text: string }[] = [
 
 const LEADERSHIP = [
     { name: 'Industry Representative', role: 'Chair', src: '/industry-placeholder.png', width: 60, height: 60 },
-    { name: 'Standards Organisation of Nigeria (SON)', role: 'Vice Chair', src: '/son-logo.png', width: 60, height: 60 },
+    { name: 'Standards Organisation of Nigeria (SON)', role: 'Vice Chair', src: '/son_png.png', width: 60, height: 60 },
     { name: 'NAFDAC', role: 'Secretariat', src: '/NAFDAC_emblem.png', width: 56, height: 56 },
     { name: 'FMoHSW', role: 'Core Official', src: '/Nigeria_Federal_Ministry_of_Health_Logo.png', width: 56, height: 56 },
-    { name: 'FCCPC', role: 'Core Official', src: '/fccpc-logo.png', width: 56, height: 56 },
+    { name: 'FCCPC', role: 'Core Official', src: '/fccpc_logo.png', width: 56, height: 56 },
 ];
 
 export default async function AboutPage() {
