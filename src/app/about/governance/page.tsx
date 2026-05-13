@@ -98,6 +98,61 @@ const CHALLENGES = [
     'Technical capacity gaps in micronutrient testing'
 ];
 
+const STEERING_COMMITTEE = [
+    'Industry Representatives',
+    'Federal Ministry of Health and Social Welfare',
+    'Federal Ministry of Education',
+    'Standards Organisation of Nigeria',
+    'National Agency for Food and Drug Administration and Control',
+    'Federal Competition and Consumer Protection Commission'
+];
+
+const MEMBERSHIP = {
+    mdas: [
+        { name: 'National Agency for Food and Drug Administration and Control', logo: '/NAFDAC_emblem.png' },
+        { name: 'Federal Ministry of Health and Social Welfare', logo: '/Nigeria_Federal_Ministry_of_Health_Logo.png' },
+        { name: 'Federal Ministry of Education' },
+        { name: 'Federal Ministry of Industry, Trade and Investment' },
+        { name: 'Federal Ministry of Finance, Budget and National Planning' },
+        { name: 'Standards Organisation of Nigeria' },
+        { name: 'Federal Competition and Consumer Protection Commission' },
+        { name: 'Nigerian Customs Service' },
+        { name: 'National Primary Health Care Development Agency' },
+        { name: 'Federal Ministry of Agriculture and Food Security' },
+        { name: 'Federal Ministry of Information and National Orientation' }
+    ],
+    industry: [
+        'Flour Millers',
+        'Vegetable Oil Producers',
+        'Sugar Producers',
+        'Salt Producers',
+        'Bouillon Producers',
+        'Premix Manufacturers, Suppliers, Importers, and Blenders',
+        'Rice Millers'
+    ],
+    professional: [
+        'Nutrition Society of Nigeria (NSN)',
+        'Nigerian Institute of Food Science and Technology (NIFST)',
+        'Association of Food Beverage Tobacco Employees (AFBTE)'
+    ],
+    partners: [
+        { name: 'World Food Programme (WFP)', logo: '/wfp-logo-standard-blue-en.svg' },
+        { name: 'UNICEF', logo: '/UNICEF_Logo.png' },
+        { name: 'Global Alliance for Improved Nutrition (GAIN)', logo: '/GAIN_logo_RVB.webp' },
+        { name: 'Bill & Melinda Gates Foundation', logo: '/gates foundation logo.svg' },
+        { name: 'Helen Keller International (HKI)' },
+        { name: 'TechnoServe' },
+        { name: 'World Health Organization (WHO)' },
+        { name: 'Particle for Humanity (PFH)' }
+    ],
+    others: [
+        'Universities and research institutions',
+        'Media organizations',
+        'Civil society organizations',
+        'Consumer advocacy groups'
+    ]
+};
+
 export default function GovernancePage() {
     return (
         <main className="governance-page">
@@ -223,6 +278,63 @@ export default function GovernancePage() {
                     color: var(--text-secondary);
                 }
 
+                .membership-section {
+                    margin-top: 4rem;
+                }
+                .membership-grid {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                    gap: 1.5rem;
+                }
+                .member-cat-card {
+                    background: #fff;
+                    border: 1px solid var(--border-light);
+                    border-radius: var(--radius-md);
+                    padding: 1.5rem;
+                }
+                .member-cat-card h4 {
+                    font-size: 1rem;
+                    color: var(--wfp-blue);
+                    margin-bottom: 1rem;
+                    display: flex;
+                    align-items: center;
+                    gap: 0.5rem;
+                    border-bottom: 1px solid var(--bg-off);
+                    padding-bottom: 0.5rem;
+                }
+                .member-list {
+                    list-style: none;
+                    padding: 0;
+                    margin: 0;
+                }
+                .member-list li {
+                    font-size: 0.85rem;
+                    color: var(--text-secondary);
+                    margin-bottom: 0.75rem;
+                    line-height: 1.4;
+                    display: flex;
+                    align-items: center;
+                    gap: 0.75rem;
+                }
+                .member-list li::before {
+                    content: "•";
+                    color: var(--wfp-gold);
+                }
+                .member-logo-mini {
+                    width: 24px;
+                    height: 24px;
+                    object-fit: contain;
+                    flex-shrink: 0;
+                    filter: grayscale(100%);
+                    opacity: 0.7;
+                    transition: all 0.2s;
+                }
+                .member-list li:hover .member-logo-mini {
+                    filter: grayscale(0%);
+                    opacity: 1;
+                    transform: scale(1.1);
+                }
+
                 @media (max-width: 900px) {
                     .monitoring-grid { grid-template-columns: 1fr; }
                 }
@@ -239,10 +351,46 @@ export default function GovernancePage() {
                     </div>
                     <h1 className="hero-title">Governance & Compliance</h1>
                     <p className="hero-subtitle">
-                        An overview of the roles, responsibilities, monitoring systems, and industry framework that ensure the effectiveness of the National Fortification Alliance.
+                        The NFA operates through a collaborative governance framework involving regulators, policymakers, industry representatives, development partners, academia, and civil society.
                     </p>
+                    <div style={{ marginTop: '2.5rem', display: 'flex', justifyContent: 'center', gap: '1rem', flexWrap: 'wrap' }}>
+                        <div style={{ background: 'rgba(255,255,255,0.1)', padding: '0.75rem 1.25rem', borderRadius: '4px', fontSize: '0.9rem' }}>
+                            <span style={{ color: 'var(--wfp-gold)', fontWeight: 700 }}>Chair:</span> Industry Representative
+                        </div>
+                        <div style={{ background: 'rgba(255,255,255,0.1)', padding: '0.75rem 1.25rem', borderRadius: '4px', fontSize: '0.9rem' }}>
+                            <span style={{ color: 'var(--wfp-gold)', fontWeight: 700 }}>Vice Chair:</span> SON
+                        </div>
+                        <div style={{ background: 'rgba(255,255,255,0.1)', padding: '0.75rem 1.25rem', borderRadius: '4px', fontSize: '0.9rem' }}>
+                            <span style={{ color: 'var(--wfp-gold)', fontWeight: 700 }}>Secretariat:</span> NAFDAC
+                        </div>
+                    </div>
                 </div>
             </div>
+
+            {/* Steering Committee Section */}
+            <section className="section" style={{ background: 'var(--bg-off)', borderBottom: '1px solid var(--border-light)' }}>
+                <div className="container">
+                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.5fr', gap: '4rem', alignItems: 'center' }}>
+                        <div>
+                            <p className="section-eyebrow">Leadership</p>
+                            <h2>NFA Steering Committee</h2>
+                            <p style={{ color: 'var(--text-secondary)', lineHeight: 1.6, marginTop: '1rem' }}>
+                                The Steering Committee provides high-level strategic direction and oversight for the National Fortification Project, ensuring policy alignment and cross-sectoral accountability.
+                            </p>
+                        </div>
+                        <div style={{ background: '#fff', padding: '2rem', borderRadius: 'var(--radius-lg)', boxShadow: 'var(--shadow-sm)', border: '1px solid var(--border-light)' }}>
+                            <h4 style={{ marginBottom: '1.5rem', color: var(--wfp-navy) }}>Committee Membership</h4>
+                            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
+                                {STEERING_COMMITTEE.map((m, i) => (
+                                    <div key={i} style={{ display: 'flex', gap: '0.75rem', fontSize: '0.88rem', color: 'var(--text-primary)', fontWeight: 500 }}>
+                                        <Icon name="check-circle" size={16} style={{ color: 'var(--wfp-green)', flexShrink: 0 }} /> {m}
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
             {/* Roles and Responsibilities */}
             <section className="section">
@@ -377,6 +525,56 @@ export default function GovernancePage() {
                         </div>
 
                     </div>
+
+                    {/* Full Membership Categories */}
+                    <div className="membership-section">
+                        <p className="section-eyebrow" style={{ textAlign: 'center' }}>Broad Participation</p>
+                        <h2 style={{ textAlign: 'center', marginBottom: '3rem' }}>Membership of the NFA</h2>
+                        
+                        <div className="membership-grid">
+                            <div className="member-cat-card">
+                                <h4><Icon name="landmark" size={18} /> Government (MDAs)</h4>
+                                <ul className="member-list">
+                                    {MEMBERSHIP.mdas.map((m, i) => (
+                                        <li key={i}>
+                                            {typeof m === 'object' && m.logo && <img src={m.logo} alt="" className="member-logo-mini" />}
+                                            {typeof m === 'object' ? m.name : m}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                            <div className="member-cat-card">
+                                <h4><Icon name="factory" size={18} /> Industry Stakeholders</h4>
+                                <ul className="member-list">
+                                    {MEMBERSHIP.industry.map((m, i) => <li key={i}>{m}</li>)}
+                                </ul>
+                            </div>
+                            <div className="member-cat-card">
+                                <h4><Icon name="graduation-cap" size={18} /> Professional Bodies</h4>
+                                <ul className="member-list">
+                                    {MEMBERSHIP.professional.map((m, i) => <li key={i}>{m}</li>)}
+                                </ul>
+                            </div>
+                            <div className="member-cat-card">
+                                <h4><Icon name="heart-handshake" size={18} /> Development Partners</h4>
+                                <ul className="member-list">
+                                    {MEMBERSHIP.partners.map((m, i) => (
+                                        <li key={i}>
+                                            {typeof m === 'object' && m.logo && <img src={m.logo} alt="" className="member-logo-mini" />}
+                                            {typeof m === 'object' ? m.name : m}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+                            <div className="member-cat-card">
+                                <h4><Icon name="megaphone" size={18} /> Academia & Media</h4>
+                                <ul className="member-list">
+                                    {MEMBERSHIP.others.map((m, i) => <li key={i}>{m}</li>)}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </section>
         </main>
