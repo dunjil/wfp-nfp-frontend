@@ -159,85 +159,113 @@ export default function GovernancePage() {
             <style>{`
                 .gov-hero {
                     position: relative;
-                    background: var(--wfp-navy);
+                    background: linear-gradient(135deg, var(--wfp-navy) 0%, var(--wfp-blue) 100%);
                     color: #fff;
-                    padding: 6rem 0 4rem;
+                    padding: 8rem 0 6rem;
                     text-align: center;
+                    overflow: hidden;
+                }
+                .gov-hero::before {
+                    content: "";
+                    position: absolute;
+                    inset: 0;
+                    background: radial-gradient(circle at 20% 30%, rgba(255,255,255,0.05) 0%, transparent 50%);
+                    pointer-events: none;
                 }
                 .hero-title {
-                    font-size: 2.8rem;
+                    font-size: 3.5rem;
                     font-weight: 900;
-                    margin-bottom: 1rem;
+                    margin-bottom: 1.5rem;
+                    letter-spacing: -0.02em;
+                    text-shadow: 0 10px 30px rgba(0,0,0,0.2);
                 }
                 .hero-subtitle {
-                    font-size: 1.15rem;
-                    color: rgba(255,255,255,0.7);
-                    max-width: 700px;
+                    font-size: 1.25rem;
+                    color: rgba(255,255,255,0.8);
+                    max-width: 800px;
                     margin: 0 auto;
-                    line-height: 1.6;
+                    line-height: 1.7;
                 }
 
                 .roles-grid {
                     display: grid;
-                    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-                    gap: 2rem;
-                    margin-top: 3rem;
+                    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+                    gap: 2.5rem;
+                    margin-top: 4rem;
                 }
                 .role-card {
+                    background: rgba(255,255,255,0.8);
+                    backdrop-filter: blur(10px);
+                    border: 1px solid rgba(255,255,255,0.5);
+                    border-radius: 24px;
+                    padding: 2.5rem;
+                    box-shadow: 0 10px 40px rgba(0,0,0,0.04);
+                    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                    display: flex;
+                    flex-direction: column;
+                }
+                .role-card:hover {
+                    transform: translateY(-10px) scale(1.02);
+                    box-shadow: 0 20px 60px rgba(0,0,0,0.08);
                     background: #fff;
-                    border: 1px solid var(--border-light);
-                    border-radius: var(--radius-lg);
-                    padding: 2rem;
-                    box-shadow: var(--shadow-sm);
+                    border-color: var(--wfp-blue-light);
                 }
                 .role-card h3 {
-                    color: var(--wfp-blue);
-                    font-size: 1.25rem;
-                    margin-bottom: 1.25rem;
-                    border-bottom: 2px solid var(--wfp-blue-light);
-                    padding-bottom: 0.75rem;
-                }
-                .role-list {
-                    list-style: none;
-                    padding: 0;
-                    margin: 0;
+                    color: var(--wfp-navy);
+                    font-size: 1.4rem;
+                    margin-bottom: 1.5rem;
+                    display: flex;
+                    align-items: center;
+                    gap: 0.75rem;
                 }
                 .role-list li {
                     position: relative;
-                    padding-left: 1.5rem;
-                    margin-bottom: 0.75rem;
-                    font-size: 0.9rem;
+                    padding-left: 1.75rem;
+                    margin-bottom: 1rem;
+                    font-size: 0.95rem;
                     color: var(--text-secondary);
-                    line-height: 1.5;
+                    line-height: 1.6;
                 }
                 .role-list li::before {
-                    content: "•";
-                    color: var(--wfp-gold);
-                    font-weight: bold;
-                    font-size: 1.5rem;
+                    content: "✓";
+                    color: var(--wfp-blue);
+                    font-weight: 900;
                     position: absolute;
                     left: 0;
-                    top: -4px;
+                    top: 0;
                 }
 
                 .monitoring-grid {
                     display: grid;
                     grid-template-columns: repeat(3, 1fr);
-                    gap: 1.5rem;
-                    margin-top: 2.5rem;
+                    gap: 2rem;
+                    margin-top: 3rem;
                 }
                 .monitor-card {
-                    background: var(--wfp-blue);
-                    color: #fff;
-                    padding: 2rem;
-                    border-radius: var(--radius-md);
+                    background: #fff;
+                    padding: 3rem 2rem;
+                    border-radius: 32px;
                     text-align: center;
+                    border: 1px solid var(--border-light);
+                    transition: all 0.3s;
                 }
-                .monitor-card:nth-child(2) { background: var(--wfp-navy); }
-                .monitor-card:nth-child(3) { background: var(--wfp-green); }
+                .monitor-card:hover {
+                    border-color: var(--wfp-blue);
+                    box-shadow: var(--shadow-xl);
+                }
+                .monitor-icon-box {
+                    width: 80px;
+                    height: 80px;
+                    margin: 0 auto 2rem;
+                    border-radius: 20px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    font-size: 2rem;
+                }
                 
-                .monitor-card h3 { font-size: 1.2rem; margin-bottom: 1rem; }
-                .monitor-card p { opacity: 0.9; font-size: 0.95rem; }
+                .monitor-card h3 { font-size: 1.3rem; margin-bottom: 1rem; color: var(--wfp-navy); }
+                .monitor-card p { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; }
 
                 .table-container {
                     overflow-x: auto;
@@ -423,17 +451,23 @@ export default function GovernancePage() {
                     
                     <div className="monitoring-grid">
                         <div className="monitor-card">
-                            <div style={{ marginBottom: '1rem' }}><Icon name="settings" size={32} /></div>
+                            <div className="monitor-icon-box" style={{ background: '#f0f7ff', color: 'var(--wfp-blue)' }}>
+                                <Icon name="settings" size={32} />
+                            </div>
                             <h3>Factory Level</h3>
                             <p>Conducted by the <strong>Standards Organisation of Nigeria (SON)</strong> to ensure compliance during the production process.</p>
                         </div>
                         <div className="monitor-card">
-                            <div style={{ marginBottom: '1rem' }}><Icon name="truck" size={32} /></div>
+                            <div className="monitor-icon-box" style={{ background: '#f5f3ff', color: 'var(--wfp-navy)' }}>
+                                <Icon name="truck" size={32} />
+                            </div>
                             <h3>Distribution & Retail</h3>
                             <p>Conducted by the <strong>National Agency for Food and Drug Administration and Control (NAFDAC)</strong> at market and port levels.</p>
                         </div>
                         <div className="monitor-card">
-                            <div style={{ marginBottom: '1rem' }}><Icon name="home" size={32} /></div>
+                            <div className="monitor-icon-box" style={{ background: '#f0fdf4', color: 'var(--wfp-green)' }}>
+                                <Icon name="home" size={32} />
+                            </div>
                             <h3>Household Level</h3>
                             <p>Conducted by the <strong>Federal Competition and Consumer Protection Commission (FCCPC)</strong> and Federal Ministry of Education (FME).</p>
                         </div>
